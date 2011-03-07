@@ -1,4 +1,5 @@
 #summary Here we discuss how to utilize the ValidateResponse event in everyday web testing.
+#labels Featured,Code,Testing
 
 =The !ValidateResponse Event=
 
