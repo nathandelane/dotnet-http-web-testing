@@ -142,9 +142,9 @@ namespace ExampleTestProject
 As you can see, the simplest request has only a URL. The URL must include either `http://` or `https://` at the beginning of it or it can be or type Uri (which is how the URL is stored in the request). Setting other properties of the request can give you more control over the request. By default this is a GET request. If you set the request body, then it automatically defaults to a POST request. Attempting to set the request body and setting the method to GET will result in an error, since GET requests don't support a request body. Setting a request body can be done like this:
 {{{
 // ...
-WebTestRequest request1 = new WebTestRequest("http://somedomain.com/login.aspx");
-			request1.ContentType = "application/x-www-form-urlencoded";
-			request1.Method = "POST";
-			request1.HttpRequestBody = "userName=somebody&amp;password=somepassword123";
+	WebTestRequest request1 = new WebTestRequest("http://somedomain.com/login.aspx");
+	request1.ContentType = "application/x-www-form-urlencoded";
+	request1.Method = "POST";
+	request1.HttpRequestBody = "userName=somebody&amp;password=somepassword123";
 // ...
 }}}
