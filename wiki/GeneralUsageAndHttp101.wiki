@@ -1,4 +1,4 @@
-#summary This page describes the basic general usage of the web testing API.
+#summary This page gives a bird's-eye view of HTTP and describes the basic general usage of the web testing API.
 
 =Basics of the Internet=
 
