@@ -19,6 +19,7 @@ Here I showcase the !ValidateFormField validation rule. The class !ValidationRul
 The !ValidationRule abstract base class has the following signature:
 {{{
 public abstract class ValidationRule
+{
 	protected _context: Nathandelane.TestingTools.WebTesting.WebTestContext
 	protected _message: string
 
@@ -31,4 +32,5 @@ public abstract class ValidationRule
 	ValidationRule(string name, string description)
 
 	public virtual void Validate(Object sender, Nathandelane.TestingTools.WebTesting.Events.ValidationEventArgs e)
+}
 }}}
