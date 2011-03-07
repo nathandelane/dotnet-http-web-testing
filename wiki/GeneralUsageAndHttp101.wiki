@@ -1,4 +1,5 @@
 #summary This page gives a bird's-eye view of HTTP and describes the basic general usage of the web testing API.
+#labels Featured,HTTP,WebTesting,Basics,101
 
 =Basics of the Internet=
 
@@ -148,3 +149,12 @@ As you can see, the simplest request has only a URL. The URL must include either
 	request1.HttpRequestBody = "userName=somebody&amp;password=somepassword123";
 // ...
 }}}
+
+==Testing the Response==
+Each request has four events, to which various types of event handlers can be connected. Currently only two events have explicitly base-classed handlers: ValidateResponse and ExtractValues.
+
+ValidateResponse is used to validate the response of a request. This might be useful if you are expected a particular type of response or if you are looking for specific page elements. ValidateResponse is connected to via a ValidationRule.
+
+ExtractValues is used to extract certain values, usually from form fields in a page after the response has been received. If you are testing a client-side workflow, such as a registration form that maintains some data on the client side, or as in Microsoft's Web Forms API, you might need to extract the view state, then the ExtractValues event is of great importance to you. You connect to the ExtractValues event through an ExtractionRule.
+
+The remaining two events, PreExecute and PostExecute, have been added for future compatibility with Microsoft's Web Testing framework. Currently there are no event handler types associated directly with these two events.
