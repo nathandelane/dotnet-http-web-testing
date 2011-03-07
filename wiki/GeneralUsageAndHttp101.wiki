@@ -70,7 +70,7 @@ Set-Cookie: zip=77511; domain=www.vehix.com; path=/
 Set-Cookie: sid=s1s5uzvl4s0pes553ibsouea; path=/
 </pre>
 
-These cookies are clearly for a domain named www.vehix.com. Cookies have five components: name, value, domain, path, and expiration. All of the cookies have the same header name, so the cookies are kept in the own collection in the browser. Cookies are contained by the domain that they are set in. Sometimes dependent requests, like those for ad containers on a website will request tracking cookies.
+These cookies are clearly for a domain named www.vehix.com. Cookies have five components: name, value, domain, path, and expiration. All of the cookies have the same header name, so the cookies are kept in their own collection in the browser. Cookies are contained by the domain that they are set in. Sometimes dependent requests, like those for ad containers on a website will request tracking cookies.
 
 ==HTTP Request Method==
 On the Internet there are several different types of requests that can be made according the HTTP 1.1. HTTP 1.1 defines nine standard methods that servers can support. Those methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html [w3c]]. Of these the most common are GET, HEAD, and POST.
