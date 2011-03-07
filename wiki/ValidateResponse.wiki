@@ -2,7 +2,7 @@
 
 =The !ValidateResponse Event=
 
-!ValidateResponse is probably the even that you will use most while testing web sites an web applications. It should be used to validate text or values in the HTTP response body. In order to connect to the !ValidateResponse event you must attach a ValidationRule object via its Validate method.
+!ValidateResponse is probably the event that you will use most while testing web sites an web applications. It should be used to validate text or values in the HTTP response body. In order to connect to the !ValidateResponse event you must attach a ValidationRule object via its Validate method.
 
 Below is an example of how to accomplish this:
 {{{
