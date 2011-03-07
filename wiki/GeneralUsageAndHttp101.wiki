@@ -3,7 +3,7 @@
 =Basics of the Internet=
 
 ==Brief HTTP Lesson (HTTP 101)==
-"The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems."
+"The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems."[http://www.w3.org/Protocols/rfc2616/rfc2616.html w3c]
 
 When dealing with HTTP you are basically doing what your web browser would ordinarily do for you. The motivation for creating a framework like this one is to remove the web browser from the equation of testing. While different web browsers will still pose a risk to the development of web sites and web applications, it is still very valuable to test those same site and applications at the HTTP level. A well-engineered site or application will perform functionally regardless of what browser is being used. As the browser serves as an agent to the application under test, so does this API.
 
