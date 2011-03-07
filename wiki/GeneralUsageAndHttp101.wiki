@@ -109,6 +109,32 @@ Finally the third encoding, text/plain, performs no encoding of any data in the 
 ==Why is This At All Important?==
 When I began using Microsoft's web testing tools, I admittedly struggled for some time until I realized what they were doing. I was used to Mercury Quick Test Pro-type web testing tools which utilize the browser and the underlying automation libraries, such as Microsoft COM, to perform the job of automating a web site or web application. But once I realized that the tools were not using a browser, and were simply employing the power of HTTP, then everything made much more sense, and I understood why and how to do things at a much lower level.
 
-In this framework, the tool make multiple web requests in sequence, which is referred to as a session. In every case a request is made, and some kind of response is returned. Though most responses from servers on the Internet are of the HTML, XHTML, or XML sort, there are many other specific response types, such as JSON (!JavaScript Object Notation), SOAP (Simple Object Access Protocol), RTSP (Real Time Streaming Protocol), and many others. At the time of this writing the API only supports XML-based responses, but support for others is planned. Please refer to the Roadmap (coming soon) for more details on those plans.
+In this framework, the tool make multiple web requests in sequence, which is referred to as a session. In every case a request is made, and some kind of response is returned. Though most responses from servers on the Internet are of the HTML, XHTML, or XML sort, there are many other specific response types, such as JSON (!JavaScript Object Notation), SOAP (Simple Object Access Protocol), RTSP (Real Time Streaming Protocol), and many others. At the time of this writing the API only supports XML-based responses, but support for others is planned. Please refer to the RoadMap (coming soon) for more details on those plans.
 
 So when using this API to perform web testing, you are actually performing tests on the resultant responses from the server; you are actually performing tests directly on the HTML.
+
+=Basics of the .NET HTTP Web Testing API=
+
+The .NET HTTP Web Testing API conforms to the details described above. It uses HTTP for all of its requests. In the future there might be some other types of requests that can be made such as RTSP requests, which are more complicated in their nature, though the standard is open.
+
+The basics of building an HTTP request are simplified in the API because the API takes care of most of the headers for you by default. While you are allowed to change any header and add your own, the headers described above are set by default to conform to the latest versions of Firefox or Internet Explorer. The differentiation is performed by the User-Agent string.
+
+Building a very basic request is simple:
+{{{
+using System;
+using System.Collections.Generic;
+using Nathandelane.TestingTools.WebTesting;
+using Nathandelane.TestingTools.WebTesting.Rules;
+
+namespace ExampleTestProject
+{
+	public class OreillyHomepage : WebTest
+	{
+		public override IEnumerator<WebTestRequest> GetRequestEnumerator()
+		{
+			WebTestRequest request1 = new WebTestRequest("http://oreilly.com/");
+			yield return request1;
+		}
+	}
+}
+}}}
