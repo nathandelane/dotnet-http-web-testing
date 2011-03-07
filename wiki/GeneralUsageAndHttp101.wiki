@@ -75,6 +75,7 @@ These cookies are clearly for a domain named www.vehix.com. Cookies have five co
 ==HTTP Request Method==
 On the Internet there are several different types of requests that can be made according the HTTP 1.1. HTTP 1.1 defines nine standard methods that servers can support. Those methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html [w3c]]. Of these the most common are GET, HEAD, and POST.
 
+===GET Request===
 A GET request may have several headers including cookies, a URL with a port number if necessary, and a query-string. A query-string is usually separated from the URL by a question mark character (?), and then key-value pairs are separated by an ampersand (&) and keys and values are separated by an equals symbol (=). Some modern web sites use other methods of separating the query-string from the rest of the URL. Many MVC (Model-View-Controller) tool-kits don't even have obvious query-strings because their query-strings appear as folders. And example GET request might look something like this:
 <pre>
 GET /?_a=viewCat&catId=14 HTTP/1.1
@@ -90,6 +91,20 @@ GET /new-cars/new-car-research/convertible HTTP/1.1
 </pre>
 
 Here the path does not indicate an actual path on the server, rather it is a path that is redirected into several indexed arguments. New-cars is probably a controller, while new-car-research is probably a view. Convertible then is obviously data, in this case a vehicle body type or style. Here the URL only indicates a value, but the server interprets the value as that of a specific key, which is indexed in the redirect rules. Thus the server interprets convertible as the value of the body-style or body-type key. If I inject something that does not conform to that pattern, such as ford, then I may get an error or be redirected to a page that I didn't expect. After testing the case, I've learned that the URL is dynamic, thus `GET /new-cars/new-car-research/ford HTTP/1.1` results in a valid page, that I did expect, so there is some dynamic testing going on on the server, which is very sophisticated. Another example of request on the same site looks like this: `GET /car-reviews/2012/ford/focus HTTP/1.1`, which again says that there is an index of query string parameters, as these are not actual folders. Placing the /2012 at the end of the URL results in an error page as expected.
+
+===HEAD Request===
+A HEAD request is used to request just headers from a server. When a server receives a HEAD request it is instructed not to return a body. HEAD requests might be useful for initializing cookies or other important headers, and they are less expensive than GET or POST requests because of these facts.
+
+===POST Request===
+A POST request is composed in a similar manner, except the a POST request may also have a body. The body may be formatted similarly to a GET request's query-string or it may be formatted in a different manner. Some servers may restrict the size of the content, filter content, or block content that does not conform to a specific pattern, but for the most part there is no limit to what a POST request body may contain. This becomes advantageous when using a POST request to upload a file to a server, which is a relatively common task these days.
+
+POST requests are often used when a web form is involved, or when a request to an asynchronous web service is made. In the case of a form, a form may encode its content in different ways. The most common and default encoding for a form is application/x-www-form-urlencoded, but there are two more encodings for forms that are supported by all XHTML DTDs: multipart/form-data (used for uploading files) and text/plain when it is desirable that the browser does not encode the contents of the form [http://www.w3schools.com/tags/att_form_enctype.asp [w3schools]].
+
+The first encoding, application/x-www-form-urlencoded, as it looks, encodes the contents of the body of a POST request as key-value pairs separated by ampersands, when the keys and values are separated by equals symbols, exactly like the query-string of a standard GET request.
+
+The second encoding, multipart/form-data, chunks the form data and sends the raw bytes of file form fields, so that the server doesn't need to decode them. A file might span several chunks. Special separators are used to attempt to identify when a new field comes up, but this is often problematic for servers, so more common is when separate forms are used for files versus regular form fields. This is, nonetheless important to know.
+
+Finally the third encoding, text/plain, performs no encoding of any data in the form, and it is sent as raw data to the server.
 
 ==Why is This At All Important?==
 When I began using Microsoft's web testing tools, I admittedly struggled for some time until I realized what they were doing. I was used to Mercury Quick Test Pro-type web testing tools which utilize the browser and the underlying automation libraries, such as Microsoft COM, to perform the job of automating a web site or web application. But once I realized that the tools were not using a browser, and were simply employing the power of HTTP, then everything made much more sense, and I understood why and how to do things at a much lower level.
