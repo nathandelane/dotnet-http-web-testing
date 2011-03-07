@@ -1,4 +1,4 @@
-#summary Here we discuss how to utilize the !ValidateResponse event in everyday web testing.
+#summary Here we discuss how to utilize the ValidateResponse event in everyday web testing.
 
 =The !ValidateResponse Event=
 
