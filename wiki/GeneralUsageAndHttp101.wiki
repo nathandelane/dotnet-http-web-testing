@@ -17,7 +17,7 @@ An HTTP request consists of the following pieces:
     * And several others, such as those defining the acceptable content types, browser compression abilities, timeout limit, and whether the requesting agent wants to keep the connection to the server alive.
 
 A typical HTTP request from one of my favorite browsers looks like this:
-{{{
+<pre>
 GET / HTTP/1.1
 Host: localhost:6360
 User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:2.0b12) Gecko/20100101 Firefox/4.0b12
@@ -28,7 +28,7 @@ Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
 Keep-Alive: 115
 DNT: 1
 Connection: keep-alive
-}}}
+</pre>
 
 Dissecting this a little bit, we find that:
   * The first line indicates the type of request (GET), the path of the request (/), and the protocol type and protocol version (HTTP/1.1),
@@ -44,7 +44,7 @@ Dissecting this a little bit, we find that:
   * And finally what type of connection to maintain with the server (Connection: keep-alive)
 
 These headers, aside from the DNT header are generally very common among browsers. As an example, here are some headers from Microsoft's Internet Explorer:
-{{{
+<pre>
 GET / HTTP/1.1
 Accept: text/html, application/xhtml+xml, */*
 Accept-Language: en-US
@@ -52,10 +52,10 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.
 Accept-Encoding: gzip, deflate
 Host: localhost:6360
 Connection: Keep-Alive
-}}}
+</pre>
 
 If a server sets any cookies, then that header looks like the following:
-{{{
+<pre>
 Set-Cookie: physicalzip=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:47 GMT; path=/
 Set-Cookie: PreviousPostalCode=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:49 GMT; path=/
 Set-Cookie: physicalzip=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:47 GMT; path=/
@@ -66,7 +66,7 @@ Set-Cookie: market=Houston; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45
 Set-Cookie: breadcrumb=Home|/default.aspx:; path=/
 Set-Cookie: zip=77511; domain=www.vehix.com; path=/
 Set-Cookie: sid=s1s5uzvl4s0pes553ibsouea; path=/
-}}}
+</pre>
 
 These cookies are clearly for a domain named www.vehix.com. Cokies have five components: name, value, domain, path, and expiration. All of the cookies have the same header name, so the cookies are kept in the own collection in the browser. Cookies are contained by the domain that they are set in. Sometimes dependent requests, like those for ad containers on a website will request tracking cookies.
 
@@ -74,18 +74,18 @@ These cookies are clearly for a domain named www.vehix.com. Cokies have five com
 On the Internet there are several different types of requests that can be made according the HTTP 1.1. Http 1.1 defines nine standard methods that servers can support. Those methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html [w3c]]. Of these the most common are GET, HEAD, and POST.
 
 A GET request may have several headers including cookies, a URL with a port number if necessary, and a query-string. A query-string is usually separated from the URL by a question mark character (?), and then key-value pairs are separated by an ampersand (&) and keys and values are separated by an equals symbol (=). Some modern web sites use other methods of separating the query-string from the rest of the URL. Many MVC (Model-View-Controller) tool-kits don't even have obvious query-strings because their query-strings appear as folders. And example GET request might look something like this:
-{{{
+<pre>
 GET /?_a=viewCat&catId=14 HTTP/1.1
-}}}
+</pre>
 
 Here we see the standard query-string in the path of the request (/?_a=viewCat&catId=14). There are two key-value pairs defined here:
   * _a=viewCat
   * catId=14
 
 The key-value pairs are separated by an ampersand, and the query-string is separated from the request path by a question mark. An MVC-like request might look like the following:
-{{{
+<pre>
 GET /new-cars/new-car-research/convertible HTTP/1.1
-}}}
+</pre>
 
 Here the path does not indicate an actual path on the server, rather it is a path that is redirected into several indexed arguments. New-cars is probably a controller, while new-car-research is probably a view. Convertible then is obviously data, in this case a vehicle body type or style. Here the URL only indicates a value, but the server interprets the value as that of a specific key, which is indexed in the redirect rules. Thus the server interprets convertible as the value of the body-style or body-type key. If I inject something that does not conform to that pattern, such as ford, then I may get an error or be redirected to a page that I didn't expect. After testing the case, I've learned that the URL is dynamic, thus `GET /new-cars/new-car-research/ford HTTP/1.1` results in a valid page, that I did expect, so there is some dynamic testing going on on the server, which is very sophisticated. Another example of request on the same site looks like this: `GET /car-reviews/2012/ford/focus HTTP/1.1`, which again says that there is an index of query string parameters, as these are not actual folders. Placing the /2012 at the end of the URL results in an error page as expected.
 
