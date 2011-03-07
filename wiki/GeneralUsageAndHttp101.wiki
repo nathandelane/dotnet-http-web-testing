@@ -54,6 +54,8 @@ Host: localhost:6360
 Connection: Keep-Alive
 </pre>
 
+==Cookies==
+
 If a server sets any cookies, then that header looks like the following:
 <pre>
 Set-Cookie: physicalzip=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:47 GMT; path=/
@@ -68,10 +70,10 @@ Set-Cookie: zip=77511; domain=www.vehix.com; path=/
 Set-Cookie: sid=s1s5uzvl4s0pes553ibsouea; path=/
 </pre>
 
-These cookies are clearly for a domain named www.vehix.com. Cokies have five components: name, value, domain, path, and expiration. All of the cookies have the same header name, so the cookies are kept in the own collection in the browser. Cookies are contained by the domain that they are set in. Sometimes dependent requests, like those for ad containers on a website will request tracking cookies.
+These cookies are clearly for a domain named www.vehix.com. Cookies have five components: name, value, domain, path, and expiration. All of the cookies have the same header name, so the cookies are kept in the own collection in the browser. Cookies are contained by the domain that they are set in. Sometimes dependent requests, like those for ad containers on a website will request tracking cookies.
 
 ==HTTP Request Method==
-On the Internet there are several different types of requests that can be made according the HTTP 1.1. Http 1.1 defines nine standard methods that servers can support. Those methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html [w3c]]. Of these the most common are GET, HEAD, and POST.
+On the Internet there are several different types of requests that can be made according the HTTP 1.1. HTTP 1.1 defines nine standard methods that servers can support. Those methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT [http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html [w3c]]. Of these the most common are GET, HEAD, and POST.
 
 A GET request may have several headers including cookies, a URL with a port number if necessary, and a query-string. A query-string is usually separated from the URL by a question mark character (?), and then key-value pairs are separated by an ampersand (&) and keys and values are separated by an equals symbol (=). Some modern web sites use other methods of separating the query-string from the rest of the URL. Many MVC (Model-View-Controller) tool-kits don't even have obvious query-strings because their query-strings appear as folders. And example GET request might look something like this:
 <pre>
