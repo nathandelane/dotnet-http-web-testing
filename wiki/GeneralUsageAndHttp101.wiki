@@ -9,7 +9,7 @@ When dealing with HTTP you are basically doing what your web browser would ordin
 
 An HTTP request consists of the following pieces:
   * A URI:
-    * Starting with the protocol, i.e. http:// or https://,
+    * Starting with the protocol, i.e. `http://` or `https://`,
     * And including the port number if the port in use is not standard,
   * And headers, including:
     * Special headers called cookies,
