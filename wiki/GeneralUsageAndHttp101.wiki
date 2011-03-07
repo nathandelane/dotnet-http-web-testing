@@ -56,7 +56,7 @@ Connection: Keep-Alive
 
 ==Cookies==
 
-If a server sets any cookies, then that header looks like the following:
+If a server sets any cookies, then those headers look like the following:
 <pre>
 Set-Cookie: physicalzip=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:47 GMT; path=/
 Set-Cookie: PreviousPostalCode=84081; domain=www.vehix.com; expires=Mon, 07-Mar-2011 20:45:49 GMT; path=/
