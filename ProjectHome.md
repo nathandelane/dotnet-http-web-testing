@@ -1,0 +1,5 @@
+The Microsoft HTTP-based web testing framework is awesome, however with new licensing and packaging for Visual Studio 2010, and the fact that the web testing framework only comes with [Visual Studio 2010 Ultimate edition](http://www.microsoft.com/visualstudio/en-us/products/2010-editions/product-comparison), using the Microsoft web testing framework is often cost-prohibitive. Because of my experience in HTTP-based automation, I decided to create my own, open-source version of the framework. It is based on the ideas and functionality of the Microsoft framework, however all of the actual work is solely my own, built completely from scratch. No Microsoft source code has been used in the project.
+
+Source code is available on the Source tab. Release packages coming soon!
+
+HtmlAgilityPack is available on CodePlex here: http://htmlagilitypack.codeplex.com/.
